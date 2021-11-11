@@ -55,7 +55,7 @@ public class BoostMessagesManager {
             final ConfigurationSection boostSection = boostsSection.getConfigurationSection(key);
             if (boostSection == null)
                 continue;
-            final String group = boostSection.getString("boost");
+            final String group = boostSection.getString("group");
             if (group == null)
                 continue;
             final String infinite = boostSection.getString("infinite");
