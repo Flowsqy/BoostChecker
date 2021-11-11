@@ -1,5 +1,6 @@
 time:
   format: "%day%%hour%%minute%%second%"
+  empty: " "
   day:
     none: ""
     one: "%time% jour "
@@ -15,7 +16,7 @@ time:
   second:
     none: ""
     one: "%time% seconde "
-    multiple: "%time% seconde "
+    multiple: "%time% secondes "
 
 noperm: "&cTu n'as pas la permission de faire cette commande"
 

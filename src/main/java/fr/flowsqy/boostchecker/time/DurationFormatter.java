@@ -7,13 +7,15 @@ public class DurationFormatter {
     private static final long DAY = 24 * HOUR;
 
     private final String timeFormat;
+    private final String empty;
     private final TimeFormatter dayFormat;
     private final TimeFormatter hourFormat;
     private final TimeFormatter minuteFormat;
     private final TimeFormatter secondFormat;
 
-    public DurationFormatter(String timeFormat, TimeFormatter dayFormat, TimeFormatter hourFormat, TimeFormatter minuteFormat, TimeFormatter secondFormat) {
+    public DurationFormatter(String timeFormat, String empty, TimeFormatter dayFormat, TimeFormatter hourFormat, TimeFormatter minuteFormat, TimeFormatter secondFormat) {
         this.timeFormat = timeFormat;
+        this.empty = empty;
         this.dayFormat = dayFormat;
         this.hourFormat = hourFormat;
         this.minuteFormat = minuteFormat;
@@ -41,6 +43,10 @@ public class DurationFormatter {
             seconds = 1;
         }
         output = output.replace("%second%", secondFormat.format(seconds));
+
+        if(output.isEmpty()){
+            output = empty;
+        }
 
         return output;
     }
