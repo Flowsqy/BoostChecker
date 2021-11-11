@@ -2,3 +2,9 @@ name: BoostChecker
 author: Flowsqy
 version: "${project.version}"
 main: fr.flowsqy.boostchecker.BoostCheckerPlugin
+api-version: "1.17"
+depend:
+  - LuckPerms
+commands:
+  bonus:
+    description: Check the remaining time for a jobs boost
