@@ -27,9 +27,9 @@ noboost: "Tu n'as pas de boost"
 boost:
   xp:
     group: "boost_exp"
-    infinite: "Tu possède un boost expérience de manière permanente"
-    normal: "Tu possède un boost éxpérience pendant encore %time%"
+    infinite: "Tu possèdes un boost expérience de manière permanente"
+    normal: "Tu possèdes un boost éxpérience pendant encore %duration%"
   money:
     group: "boost_money"
-    infinite: "Tu possède un boost de money de manière permanente"
-    normal: "Tu possède un boost de money pendant encore %time%"
+    infinite: "Tu possèdes un boost de money de manière permanente"
+    normal: "Tu possèdes un boost de money pendant encore %duration%"
