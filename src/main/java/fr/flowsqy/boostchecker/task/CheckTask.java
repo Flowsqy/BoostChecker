@@ -5,6 +5,8 @@ import fr.flowsqy.boostchecker.io.BoostMessages;
 import net.luckperms.api.model.user.User;
 import net.luckperms.api.node.NodeType;
 import net.luckperms.api.node.types.InheritanceNode;
+import org.bukkit.ChatColor;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
 import java.time.Instant;
@@ -16,8 +18,23 @@ public class CheckTask {
 
     private final BoostCheckerPlugin plugin;
 
-    public CheckTask(BoostCheckerPlugin plugin) {
+    private final String header;
+    private final String footer;
+    private final String noBoost;
+
+    public CheckTask(BoostCheckerPlugin plugin, YamlConfiguration configuration) {
         this.plugin = plugin;
+
+        header = getMessage(configuration, "header");
+        footer = getMessage(configuration, "footer");
+        noBoost = getMessage(configuration, "noboost");
+    }
+
+    private String getMessage(YamlConfiguration configuration, String path){
+        final String rawMessage = configuration.getString(path);
+        if(rawMessage == null)
+            return null;
+        return ChatColor.translateAlternateColorCodes('&', rawMessage);
     }
 
     public void perform(Player player){
@@ -30,10 +47,10 @@ public class CheckTask {
             }
         }
         if(boosts.isEmpty()){
-            player.sendMessage("No Boost");
+            player.sendMessage(noBoost);
         }
         else{
-            player.sendMessage("-----HEADER");
+            player.sendMessage(header);
             for(AbstractMap.SimpleEntry<Instant, BoostMessages> boost : boosts){
                 final Instant instant = boost.getKey();
                 if(instant == null){
@@ -43,7 +60,7 @@ public class CheckTask {
                     player.sendMessage(boost.getValue().getNormal(instant));
                 }
             }
-            player.sendMessage("-----FOOTER");
+            player.sendMessage(footer);
         }
     }
 
