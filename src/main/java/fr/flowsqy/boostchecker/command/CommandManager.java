@@ -16,12 +16,12 @@ public class CommandManager {
         final PluginCommand command = plugin.getCommand("bonus");
         Objects.requireNonNull(command);
         final String noPerm = configuration.getString("noperm");
-        if(noPerm != null){
+        if (noPerm != null) {
             command.setPermissionMessage(ChatColor.translateAlternateColorCodes('&', noPerm));
         }
         command.setTabCompleter((sender, cmd, label, args) -> Collections.emptyList());
         command.setExecutor((sender, cmd, label, args) -> {
-            if(sender instanceof Player player){
+            if (sender instanceof Player player) {
                 task.perform(player);
             }
             return true;

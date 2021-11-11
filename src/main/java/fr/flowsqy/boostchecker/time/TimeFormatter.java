@@ -12,15 +12,13 @@ public class TimeFormatter {
         this.multiple = multiple;
     }
 
-    public String format(long time){
+    public String format(long time) {
         String output;
-        if(time > 1L){
+        if (time > 1L) {
             output = multiple;
-        }
-        else if(time == 1){
+        } else if (time == 1) {
             output = one;
-        }
-        else{
+        } else {
             output = none;
         }
         return output.replace("%time%", String.valueOf(time));

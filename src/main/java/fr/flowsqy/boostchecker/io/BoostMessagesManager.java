@@ -18,9 +18,9 @@ public class BoostMessagesManager {
         fillBoostMessages(configuration);
     }
 
-    private void fillBoostMessages(YamlConfiguration configuration){
+    private void fillBoostMessages(YamlConfiguration configuration) {
         final ConfigurationSection boostsSection = configuration.getConfigurationSection("boost");
-        if(boostsSection == null)
+        if (boostsSection == null)
             return;
 
         final DurationFormatter defaultFormatter = deserializeDurationFormatter(
@@ -51,18 +51,18 @@ public class BoostMessagesManager {
                 )
         );
 
-        for(String key : boostsSection.getKeys(false)){
+        for (String key : boostsSection.getKeys(false)) {
             final ConfigurationSection boostSection = boostsSection.getConfigurationSection(key);
-            if(boostSection == null)
+            if (boostSection == null)
                 continue;
             final String group = boostSection.getString("boost");
-            if(group == null)
+            if (group == null)
                 continue;
             final String infinite = boostSection.getString("infinite");
-            if(infinite == null)
+            if (infinite == null)
                 continue;
             final String normal = boostSection.getString("normal");
-            if(normal == null)
+            if (normal == null)
                 continue;
             final DurationFormatter durationFormatter = deserializeDurationFormatter(
                     boostSection.getConfigurationSection("time"),
@@ -80,27 +80,27 @@ public class BoostMessagesManager {
     public Map<String, BoostMessages> getBoostMessages() {
         return boostMessages;
     }
-    
-    private DurationFormatter deserializeDurationFormatter(ConfigurationSection section, DurationFormatter defaultFormatter){
-        if(section == null)
+
+    private DurationFormatter deserializeDurationFormatter(ConfigurationSection section, DurationFormatter defaultFormatter) {
+        if (section == null)
             return defaultFormatter;
         final String format = section.getString("format");
-        if(format == null)
+        if (format == null)
             return defaultFormatter;
         final String empty = section.getString("empty");
-        if(empty == null)
+        if (empty == null)
             return defaultFormatter;
         final TimeFormatter dayFormatter = deserializeTimeFormatter(section.getConfigurationSection("day"));
-        if(dayFormatter == null)
+        if (dayFormatter == null)
             return defaultFormatter;
         final TimeFormatter hourFormatter = deserializeTimeFormatter(section.getConfigurationSection("hour"));
-        if(hourFormatter == null)
+        if (hourFormatter == null)
             return defaultFormatter;
         final TimeFormatter minuteFormatter = deserializeTimeFormatter(section.getConfigurationSection("minute"));
-        if(minuteFormatter == null)
+        if (minuteFormatter == null)
             return defaultFormatter;
         final TimeFormatter secondFormatter = deserializeTimeFormatter(section.getConfigurationSection("second"));
-        if(secondFormatter == null)
+        if (secondFormatter == null)
             return defaultFormatter;
         return new DurationFormatter(
                 ChatColor.translateAlternateColorCodes('&', format),
@@ -111,18 +111,18 @@ public class BoostMessagesManager {
                 secondFormatter
         );
     }
-    
-    private TimeFormatter deserializeTimeFormatter(ConfigurationSection section){
-        if(section == null)
+
+    private TimeFormatter deserializeTimeFormatter(ConfigurationSection section) {
+        if (section == null)
             return null;
         final String none = section.getString("none");
-        if(none == null)
+        if (none == null)
             return null;
         final String one = section.getString("one");
-        if(one == null)
+        if (one == null)
             return null;
         final String multiple = section.getString("multiple");
-        if(multiple == null)
+        if (multiple == null)
             return null;
         return new TimeFormatter(
                 ChatColor.translateAlternateColorCodes('&', none),
@@ -130,5 +130,5 @@ public class BoostMessagesManager {
                 ChatColor.translateAlternateColorCodes('&', multiple)
         );
     }
-    
+
 }

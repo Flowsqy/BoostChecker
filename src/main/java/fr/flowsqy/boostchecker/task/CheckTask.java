@@ -30,33 +30,31 @@ public class CheckTask {
         noBoost = getMessage(configuration, "noboost");
     }
 
-    private String getMessage(YamlConfiguration configuration, String path){
+    private String getMessage(YamlConfiguration configuration, String path) {
         final String rawMessage = configuration.getString(path);
-        if(rawMessage == null)
+        if (rawMessage == null)
             return null;
         return ChatColor.translateAlternateColorCodes('&', rawMessage);
     }
 
-    public void perform(Player player){
+    public void perform(Player player) {
         final User user = plugin.getLuckPerms().getPlayerAdapter(Player.class).getUser(player);
         final Set<AbstractMap.SimpleEntry<Instant, BoostMessages>> boosts = new HashSet<>();
-        for(InheritanceNode node : user.getNodes(NodeType.INHERITANCE)){
+        for (InheritanceNode node : user.getNodes(NodeType.INHERITANCE)) {
             final BoostMessages message = plugin.getBoostMessagesManager().getBoostMessages().get(node.getGroupName());
-            if(message != null && !node.hasExpired()){
+            if (message != null && !node.hasExpired()) {
                 boosts.add(new AbstractMap.SimpleEntry<>(node.getExpiry(), message));
             }
         }
-        if(boosts.isEmpty()){
+        if (boosts.isEmpty()) {
             player.sendMessage(noBoost);
-        }
-        else{
+        } else {
             player.sendMessage(header);
-            for(AbstractMap.SimpleEntry<Instant, BoostMessages> boost : boosts){
+            for (AbstractMap.SimpleEntry<Instant, BoostMessages> boost : boosts) {
                 final Instant instant = boost.getKey();
-                if(instant == null){
+                if (instant == null) {
                     player.sendMessage(boost.getValue().getInfinite());
-                }
-                else{
+                } else {
                     player.sendMessage(boost.getValue().getNormal(instant));
                 }
             }

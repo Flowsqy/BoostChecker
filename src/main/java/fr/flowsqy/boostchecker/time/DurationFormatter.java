@@ -22,7 +22,7 @@ public class DurationFormatter {
         this.secondFormat = secondFormat;
     }
 
-    public String format(long duration){
+    public String format(long duration) {
         String output = timeFormat;
 
         final long woDays = duration % DAY;
@@ -39,12 +39,12 @@ public class DurationFormatter {
 
         final long woSeconds = woMinutes % SECOND;
         long seconds = (woMinutes - woSeconds) / SECOND;
-        if(seconds == 0 && woSeconds > 0){
+        if (seconds == 0 && woSeconds > 0) {
             seconds = 1;
         }
         output = output.replace("%second%", secondFormat.format(seconds));
 
-        if(output.isEmpty()){
+        if (output.isEmpty()) {
             output = empty;
         }
 

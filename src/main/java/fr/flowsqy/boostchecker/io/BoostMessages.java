@@ -20,7 +20,7 @@ public class BoostMessages {
         return infinite;
     }
 
-    public String getNormal(Instant end){
+    public String getNormal(Instant end) {
         final String duration = formatter.format(end.toEpochMilli() - Instant.now().toEpochMilli());
         return normal.replace("%duration%", duration);
     }
