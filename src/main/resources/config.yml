@@ -1,0 +1,34 @@
+time:
+  format: "%day%%hour%%minute%%second%"
+  day:
+    none: ""
+    one: "%time% jour "
+    multiple: "%time% jours "
+  hour:
+    none: ""
+    one: "%time% heure "
+    multiple: "%time% heures "
+  minute:
+    none: ""
+    one: "%time% minute "
+    multiple: "%time% minutes "
+  second:
+    none: ""
+    one: "%time% seconde "
+    multiple: "%time% seconde "
+
+noperm: "&cTu n'as pas la permission de faire cette commande"
+
+header: "-----------"
+footer: "-----------"
+noboost: "Tu n'as pas de boost"
+
+boost:
+  xp:
+    group: "boost_exp"
+    infinite: "Tu possède un boost expérience de manière permanente"
+    normal: "Tu possède un boost éxpérience pendant encore %time%"
+  money:
+    group: "boost_money"
+    infinite: "Tu possède un boost de money de manière permanente"
+    normal: "Tu possède un boost de money pendant encore %time%"

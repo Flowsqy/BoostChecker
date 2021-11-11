@@ -13,13 +13,17 @@ public class TimeFormatter {
     }
 
     public String format(long time){
+        String output;
         if(time > 1L){
-            return multiple;
+            output = multiple;
         }
-        if(time == 1){
-            return one;
+        else if(time == 1){
+            output = one;
         }
-        return none;
+        else{
+            output = none;
+        }
+        return output.replace("%time%", String.valueOf(time));
     }
 
 }
