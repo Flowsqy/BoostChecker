@@ -8,3 +8,4 @@ depend:
 commands:
   bonus:
     description: Check the remaining time for a jobs boost
+    permission: boostchecker.command
