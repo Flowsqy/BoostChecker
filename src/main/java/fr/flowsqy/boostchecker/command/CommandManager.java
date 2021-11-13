@@ -13,7 +13,7 @@ import java.util.Objects;
 public class CommandManager {
 
     public CommandManager(BoostCheckerPlugin plugin, CheckTask task, YamlConfiguration configuration) {
-        final PluginCommand command = plugin.getCommand("bonus");
+        final PluginCommand command = plugin.getCommand("boost");
         Objects.requireNonNull(command);
         final String noPerm = configuration.getString("noperm");
         if (noPerm != null) {
