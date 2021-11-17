@@ -6,7 +6,7 @@
 
     <groupId>fr.flowsqy.boostcheck</groupId>
     <artifactId>BoostChecker</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
@@ -19,6 +19,10 @@
         <repository>
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
         </repository>
     </repositories>
 
@@ -34,6 +38,11 @@
             <artifactId>api</artifactId>
             <version>5.3</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.Flowsqy</groupId>
+            <artifactId>PlCommon</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 

@@ -5,6 +5,7 @@ main: fr.flowsqy.boostchecker.BoostCheckerPlugin
 api-version: "1.17"
 depend:
   - LuckPerms
+  - PlCommon
 commands:
   boost:
     description: Check the remaining time for a jobs boost

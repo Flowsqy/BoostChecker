@@ -1,6 +1,6 @@
 package fr.flowsqy.boostchecker.io;
 
-import fr.flowsqy.boostchecker.time.DurationFormatter;
+import fr.flowsqy.plcommon.time.DurationFormatter;
 
 import java.time.Instant;
 
