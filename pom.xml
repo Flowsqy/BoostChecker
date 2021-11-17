@@ -42,7 +42,7 @@
         <dependency>
             <groupId>com.github.Flowsqy</groupId>
             <artifactId>PlCommon</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.0d</version>
         </dependency>
     </dependencies>
 
